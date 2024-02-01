@@ -1,0 +1,46 @@
+//Horizontal full pantalla 
+@media (min-width: 960px) and (orientation: landscape) {
+    .wrapper {
+        width: 100vw;
+        height: 100vh;
+        //Flex
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .section_left {
+        width: 50%;
+        height: 100%;
+        //Flex
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        //Fondo de la imagen
+        background-image: url('/assets/images/login-bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .logo_buap{
+        width: 280px;
+        height: 350px;
+    }
+    .logo_FCC{
+        width: 500px;
+        height: 180px;
+    }
+    .section_right {
+        width: 50%;
+        height: 100%;
+        //Flex
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+}
