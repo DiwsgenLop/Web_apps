@@ -5,7 +5,7 @@ import { RegistroScreenComponent } from './screens/registro-screen/registro-scre
 
 const routes: Routes = [
   {path: '', component: LoginScreenComponent, pathMatch: 'full'}, //Raiz de la pagina principal
-  {path: 'registro_usuarios', component: RegistroScreenComponent,pathMatch: 'full'}, //Ruta para el login
+  {path: 'registro-usuarios', component: RegistroScreenComponent,pathMatch: 'full'}, //Ruta para el login
 ];
 
 @NgModule({
