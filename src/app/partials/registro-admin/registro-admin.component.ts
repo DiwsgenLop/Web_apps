@@ -8,7 +8,7 @@ declare var $:any;
   styleUrls: ['./registro-admin.component.scss']
 })
 export class RegistroAdminComponent implements OnInit{
-  @Input() rol:string = "";
+  @Input() rol:string = ""; //Allows data to be passed from the parent component to the child component
 
   public admin:any = {};
   public editar:boolean = false;
