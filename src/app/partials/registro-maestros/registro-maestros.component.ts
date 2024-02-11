@@ -17,6 +17,15 @@ export class RegistroMaestrosComponent implements OnInit{
   public hide_2: boolean = false;
   public inputType_1: string = 'password';
   public inputType_2: string = 'password';
+  
+  //Areas de investigación
+  public areas:any[] = [
+    {value: '1', viewValue: 'Desarrollo Web'},
+    {value: '2', viewValue: 'Programación'},
+    {value: '3', viewValue: 'Base de datos'},
+    {value: '4', viewValue: 'Redes'},
+    {value: '5', viewValue: 'Matematicas'},
+  ];
   //Materias
   public materias:any[]= [
     {value: '1', nombre: 'Aplicaciones Web'},

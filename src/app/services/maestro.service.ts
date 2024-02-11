@@ -92,7 +92,9 @@ export class MaestroService {
       alert("El formato es solo números");
     }
     //area_investigacion
-
+    if(!this.validatorService.required(data["area_investigacion"])){
+      error["area_investigacion"] = this.errorService.required;
+    }
     //materias, se valida que no esté vacío
     if(data["materias"].length == 0){
       error["materias"] = this.errorService.required;

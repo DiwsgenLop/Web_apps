@@ -78,7 +78,13 @@
             </mat-form-field>
             <div *ngIf="errors.cubiculo" class="invalid-feedback">{{ errors.cubiculo }}</div>    
             <!--Area de investigacion-->
-
+            <mat-form-field class="mat-input" appearance="outline">
+                <mat-label>Área de investigación</mat-label>
+                <mat-select matInput [(ngModel)]="maestro.area_investigacion">
+                <mat-option *ngFor="let area of areas" [value]="area.viewValue">{{area.viewValue}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div *ngIf="errors.area_investigacion" class="invalid-feedback">{{ errors.area_investigacion }}</div>
             <!--Materias-->
             <div class="select-materias">
                 <div class="row mt-3 mb-3">
