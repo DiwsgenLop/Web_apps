@@ -63,7 +63,6 @@ export class AlumnoService {
       if(!this.validatorService.required(data["password"])){
         error["password"] = this.errorService.required;
       }
-
       if(!this.validatorService.required(data["confirmar_password"])){
         error["confirmar_password"] = this.errorService.required;
       }
