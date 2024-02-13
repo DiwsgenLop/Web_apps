@@ -29,7 +29,7 @@ export class MaestroService {
       'birthday': '',
       'cubiculo': '',
       'area_investigacion': '',
-      'materias': []
+      'materias_json': [],
     }
   }
 
@@ -96,8 +96,8 @@ export class MaestroService {
       error["area_investigacion"] = this.errorService.required;
     }
     //materias, se valida que no esté vacío
-    if(data["materias"].length == 0){
-      error["materias"] = this.errorService.required;
+    if((data["materias_json"].length == 0)){
+      error["materias_json"] = this.errorService.required;
     }
     //Regresar errores
     return error;
