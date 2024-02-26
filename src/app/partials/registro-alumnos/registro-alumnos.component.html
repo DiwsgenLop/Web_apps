@@ -63,7 +63,7 @@
                 <mat-label>CURP</mat-label>
                 <input matInput [(ngModel)]="alumno.curp" placeholder="Escribe CURP" style="text-transform: uppercase;">
             </mat-form-field>
-            <div *ngIf="errors.birthday" class="invalid-feedback">{{ errors.birthday }}</div>
+            <div *ngIf="errors.curp" class="invalid-feedback">{{ errors.curp }}</div>
             <!--RFC-->
             <mat-form-field class="mat-input" appearance="outline">
                 <mat-label>RFC</mat-label>
