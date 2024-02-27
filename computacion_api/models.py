@@ -25,4 +25,40 @@ class Administradores(models.Model):
     def __str__(self):
         return "Perfil de admin "+self.usuario.first_name+" "+self.usuario.last_name
 
+#Ahora agregaremos los clases de Alumno y maestro
+class Alumnos(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
+    #Nombre, Apellido correo y contraseña se guardan en User
+    clave_alumno = models.CharField(max_length=255, null=True, blank=True) #ID (EN CAMPO de formulario)
+    fecha_de_nacimiento = models.DateField(null=True, blank=True)
+    curp = models.CharField(max_length=255, null=True, blank=True)
+    rfc = models.CharField(max_length=255, null=True, blank=True)
+    edad = models.IntegerField(null=True, blank=True)
+    telefono = models.CharField(max_length=255, null=True, blank=True)
+    ocupacion = models.CharField(max_length=255, null=True, blank=True)
+    #Para cambios se realiza estas variables para determinar las fechas de creacion y actualizacion
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return "Perfil de alumno "+self.usuario.first_name+" "+self.usuario.last_name
+
+#Maestro
+class Maestro(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
+    #Nombre, Apellido correo y contraseña se guardan en User
+    clave_maestro = models.CharField(max_length=255, null=True, blank=True) #ID (EN CAMPO de formulario)
+    fecha_de_nacimiento = models.DateField(null=True, blank=True)
+    telefono = models.CharField(max_length=255, null=True, blank=True)
+    rfc = models.CharField(max_length=255, null=True, blank=True)
+    cubiculo = models.IntegerField(null=True, blank=True) #Los cubiulos solo son enteros
+   # area_investigacion = models.Choices(max_length=255, null=True, blank=True)
+    materias =models.BooleanField(null=True, blank=True) #Es de tipo booleano debido a que puede seleccionar varias materias
+    #Para cambios se realiza estas variables para determinar las fechas de creacion y actualizacion
+    creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    update = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return "Perfil de maestro "+self.usuario.first_name+" "+self.usuario.last_name
