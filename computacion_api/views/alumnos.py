@@ -93,6 +93,6 @@ class AlumnosView(generics.CreateAPIView):
                                             ocupacion= request.data["ocupacion"])
             alumno.save() #Guarda los datos en la base de datos
 
-            return Response({"admin_created_id": alumno.id }, 201)
+            return Response({"alumno_created_id": alumno.id }, 201)
 
         return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
