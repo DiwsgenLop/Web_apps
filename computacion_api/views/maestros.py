@@ -30,7 +30,7 @@ import string
 import random
 import json
 
-#Permite obtener toda la lista de alumnos
+#Permite obtener toda la lista de Maestros
 class MaestrosAll(generics.CreateAPIView):
     #Esta linea se usa para pedir el token de autenticación de inicio de sesión
     permission_classes = (permissions.IsAuthenticated,)

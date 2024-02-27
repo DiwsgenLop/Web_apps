@@ -27,13 +27,12 @@ class AlumnoSerializer(serializers.ModelSerializer):
         model = Alumnos
         fields = "__all__"
 
-''' 
 class MaestroSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
     class Meta:
         model = Maestros
         fields = "__all__"
-       
+'''        
 #Extra para alumnos
 class ProfilesAllSerializerAlumnos(serializers.ModelSerializer):
     class Meta:
