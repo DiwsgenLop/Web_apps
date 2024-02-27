@@ -74,4 +74,14 @@ export class RegistroAlumnosComponent implements OnInit{
       this.hide_2 = false;
     }
   }
+  //Agregar funcion para detectar cambio de fecha
+  public changefecha(event:any){
+    console.log("Evento: ", event);
+    console.log(event.value.toISOString());
+
+    this.alumno.fecha_nacimiento = event.value.toISOString().split('T')[0];
+    console.log("Fecha:", this.alumno.fecha_nacimiento);
+  }
+
+
 }

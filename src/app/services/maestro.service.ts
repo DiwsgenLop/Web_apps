@@ -98,6 +98,8 @@ export class MaestroService {
     //materias, se valida que no esté vacío
     if((data["materias_json"].length == 0)){
       error["materias_json"] = this.errorService.required;
+      //Puede ser con un alert
+      //alert("Selecciona al menos una materia");
     }
     //Regresar errores
     return error;
