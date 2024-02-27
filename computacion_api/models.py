@@ -45,7 +45,7 @@ class Alumnos(models.Model):
         return "Perfil de alumno "+self.usuario.first_name+" "+self.usuario.last_name
 
 #Maestro
-class Maestro(models.Model):
+class Maestros(models.Model):
     id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
     #Nombre, Apellido correo y contraseña se guardan en User
@@ -54,7 +54,7 @@ class Maestro(models.Model):
     telefono = models.CharField(max_length=255, null=True, blank=True)
     rfc = models.CharField(max_length=255, null=True, blank=True)
     cubiculo = models.IntegerField(null=True, blank=True) #Los cubiulos solo son enteros
-   # area_investigacion = models.Choices(max_length=255, null=True, blank=True)
+   # area_investigacion = models.Choices(max_length=255, null=True, blank=True) 
     materias =models.BooleanField(null=True, blank=True) #Es de tipo booleano debido a que puede seleccionar varias materias
     #Para cambios se realiza estas variables para determinar las fechas de creacion y actualizacion
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)

@@ -20,7 +20,7 @@ from computacion_api.views import users
 from computacion_api.views import auth
 #Importaciones para alumno y maestros 
 from computacion_api.views import alumnos
-# from computacion_api.views import maestros
+from computacion_api.views import maestros
 
 urlpatterns = [
     #Version
@@ -34,9 +34,9 @@ urlpatterns = [
     #Lista de Alumnos
         path('lista-alumno/', alumnos.AlumnosAll.as_view()),
     #Create Maestro
-        #path('Maestro/', users.MaestroView.as_view()),
+        path('Maestro/', maestros.MaestrosView.as_view()),
     #Lista de Maestros
-       # path('lista-maestro/', users.MaestroAll.as_view()),   
+       path('lista-maestro/', maestros.MaestrosAll.as_view()),   
         
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
