@@ -18,14 +18,27 @@ from django.urls import path
 from computacion_api.views import bootstrap
 from computacion_api.views import users
 from computacion_api.views import auth
+#Importaciones para alumno y maestros 
+# from computacion_api.views import alumnos
+# from computacion_api.views import maestros
 
 urlpatterns = [
     #Version
         path('bootstrap/version', bootstrap.VersionView.as_view()),
-    #Create User
-        path('users/', users.UsersView.as_view()),
-    #User Data
-        path('me/', users.Userme.as_view()),
+    #Create Admin
+        path('admin/', users.AdminView.as_view()),
+    #Lista de Admins
+        path('lista-admins/', users.AdminAll.as_view()),
+    #TO DO ALUMNO Y MAESTRO
+    #Create Alumn
+       # path('Alumno/', users.AlumnoView.as_view()),
+    #Lista de Admins
+        #path('lista-alumno/', users.AlumnoAll.as_view()),
+    #Create Maestro
+        #path('Maestro/', users.MaestroView.as_view()),
+    #Lista de Maestros
+       # path('lista-maestro/', users.MaestroAll.as_view()),   
+        
     #Login
         path('token/', auth.CustomAuthToken.as_view()),
     #Logout
