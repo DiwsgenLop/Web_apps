@@ -89,7 +89,7 @@ class MaestrosView(generics.CreateAPIView):
                                             telefono= request.data["telefono"],
                                             rfc= request.data["rfc"].upper(),
                                             cubiculo= request.data["cubiculo"],
-                                            #area_investigacion = request.data["area_investigacion"],
+                                            area_investigacion = request.data["area_investigacion"],
                                             materias = request.data["materias"],)
             maestro.save() #Guarda los datos en la base de datos
 
