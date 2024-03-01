@@ -54,8 +54,9 @@ class Maestros(models.Model):
     telefono = models.CharField(max_length=255, null=True, blank=True)
     rfc = models.CharField(max_length=255, null=True, blank=True)
     cubiculo = models.IntegerField(null=True, blank=True) #Los cubiulos solo son enteros
+    #Los valores de las opciones son enviadas como cadenas de texto debido a los archivos .ts que se encuentran en el front
     area_investigacion = models.CharField(max_length=255, null=True, blank=True) 
-    materias =models.BooleanField(null=True, blank=True) #Es de tipo booleano debido a que puede seleccionar varias materias
+    materias =models.TextField(null=True, blank=True) 
     #Para cambios se realiza estas variables para determinar las fechas de creacion y actualizacion
     creation = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     update = models.DateTimeField(null=True, blank=True)
