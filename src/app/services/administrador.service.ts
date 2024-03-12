@@ -1,8 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
+//Configuracion para la api
+const httpOptions ={
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +18,7 @@ export class AdministradorService {
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
+
   ) { }
 
   public esquemaAdmin(){
@@ -93,4 +100,11 @@ export class AdministradorService {
     return error;
   }
 
+  //Aquí van los servicios HTTP
+  //Servicio para registrar un nuevo usuario
+  public registrarAdmin (data: any): Observable <any>{
+    //Enrutamos nuestra direccion con la api de admin
+    return this.http.post<any>(`${environment.url_api}/admin/`,data, httpOptions);
+    
+  }
 }
