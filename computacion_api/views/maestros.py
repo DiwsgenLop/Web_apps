@@ -32,23 +32,27 @@ import json
 
 #Permite obtener toda la lista de Maestros
 class MaestrosAll(generics.CreateAPIView):
-    #Esta linea se usa para pedir el token de autenticación de inicio de sesión
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
         maestros = Maestros.objects.filter(user__is_active = 1).order_by("id")
-        lista = MaestroSerializer(maestros, many=True).data
-        
-        return Response(lista, 200)
+        maestros = MaestroSerializer(maestros, many=True).data
+        #Aquí convertimos los valores de nuevo a un array
+        if not maestros:
+            return Response({},400)
+        for maestro in maestros:
+            maestro["materias_json"] = json.loads(maestro["materias_json"])
+
+        return Response(maestros, 200)
 
 #Esta clase permite 
 class MaestrosView(generics.CreateAPIView):
     #Obtener usuario por ID
     # permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
-        maestros = get_object_or_404(Maestros, id = request.GET.get("id"))
-        maestros = MaestroSerializer(maestros, many=False).data
-
-        return Response(maestros, 200)
+        maestro = get_object_or_404(Maestros, id = request.GET.get("id"))
+        maestro = MaestroSerializer(maestro, many=False).data
+        maestro["materias_json"] = json.loads(maestro["materias_json"])
+        return Response(maestro, 200)
     
     #Registrar nuevo usuario
     @transaction.atomic
@@ -90,7 +94,7 @@ class MaestrosView(generics.CreateAPIView):
                                             rfc= request.data["rfc"].upper(),
                                             cubiculo= request.data["cubiculo"],
                                             area_investigacion = request.data["area_investigacion"],
-                                            materias = request.data["materias"],)
+                                            materias_json = json.dumps(request.data["materias_json"]))
             maestro.save() #Guarda los datos en la base de datos
 
             return Response({"maestro_created_id": maestro.id }, 201)
