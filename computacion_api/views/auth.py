@@ -38,7 +38,6 @@ class CustomAuthToken(ObtainAuthToken):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         if user.is_active:
-
             roles = user.groups.all()
             role_names = []
             for role in roles:

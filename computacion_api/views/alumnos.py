@@ -32,7 +32,6 @@ import json
 
 #Permite obtener toda la lista de alumnos
 class AlumnosAll(generics.CreateAPIView):
-    #Esta linea se usa para pedir el token de autenticación de inicio de sesión
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
         alumnos = Alumnos.objects.filter(user__is_active = 1).order_by("id")

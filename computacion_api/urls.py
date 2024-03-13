@@ -30,11 +30,11 @@ urlpatterns = [
     #Lista de Admins
         path('lista-admins/', users.AdminAll.as_view()),
     #Create Alumn
-       path('Alumno/', alumnos.AlumnosView.as_view()),
+       path('alumnos/', alumnos.AlumnosView.as_view()),
     #Lista de Alumnos
         path('lista-alumno/', alumnos.AlumnosAll.as_view()),
     #Create Maestro
-        path('Maestro/', maestros.MaestrosView.as_view()),
+        path('maestros/', maestros.MaestrosView.as_view()),
     #Lista de Maestros
        path('lista-maestro/', maestros.MaestrosAll.as_view()),   
         
