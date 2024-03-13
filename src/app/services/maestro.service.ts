@@ -1,8 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ErrorsService } from './tools/errors.service';
 import { ValidatorService } from './tools/validator.service';
+//Librerias necesarias para la conexion con la API
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
+//Configuracion para la api
+const httpOptions ={
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -104,4 +111,10 @@ export class MaestroService {
     //Regresar errores
     return error;
   }
+    //Maestro
+    //Servicio para HTTP
+    //registrar nuevo usuario Maestro
+    public registrarMaestro(data: any): Observable<any> {
+    return this.http.post<any>(`${environment.url_api}/maestros/`, data, httpOptions);
+    }
 }

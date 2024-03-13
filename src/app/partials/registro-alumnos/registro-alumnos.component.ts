@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AlumnoService } from 'src/app/services/alumno.service';
+import { Router } from '@angular/router';
 declare var $:any; //Declares a variable that can be used anywhere in the component
 @Component({
   selector: 'app-registro-alumnos',
@@ -20,7 +21,8 @@ export class RegistroAlumnosComponent implements OnInit{
 
   //Constructor
   constructor(
-    private alumnoService: AlumnoService
+    private alumnoService: AlumnoService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -42,8 +44,24 @@ export class RegistroAlumnosComponent implements OnInit{
     if(!$.isEmptyObject(this.errors)){
       return false;
     }
-
-    //TODO: Después registraremos maestro
+    // Validamos que las contraseñas coincidan
+    //Validar la contraseña
+    if(this.alumno.password == this.alumno.confirmar_password){
+      //Aquí si todo es correcto vamos a registrar - aquí se manda a consumir el servicio
+      this.alumnoService.registrarAlumno(this.alumno).subscribe(
+        (response)=>{
+          alert("Usuario registrado correctamente");
+          console.log("Usuario registrado: ", response);
+          this.router.navigate(["/"]);
+        }, (error)=>{
+          alert("No se pudo registrar usuario");
+        }
+      );
+    }else{
+      alert("Las contraseñas no coinciden");
+      this.alumno.password="";
+      this.alumno.confirmar_password="";
+    }
   }
 
   public actualizar(){
