@@ -31,7 +31,7 @@ class Alumnos(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
     #Nombre, Apellido correo y contraseña se guardan en User
     clave_alumno = models.CharField(max_length=255, null=True, blank=True) #ID (EN CAMPO de formulario)
-    fecha_de_nacimiento = models.DateField(null=True, blank=True)
+    fecha_de_nacimiento = models.DateTimeField(null=True, blank=True)
     curp = models.CharField(max_length=255, null=True, blank=True)
     rfc = models.CharField(max_length=255, null=True, blank=True)
     edad = models.IntegerField(null=True, blank=True)
@@ -50,7 +50,7 @@ class Maestros(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, default=None)
     #Nombre, Apellido correo y contraseña se guardan en User
     clave_maestro = models.CharField(max_length=255, null=True, blank=True) #ID (EN CAMPO de formulario)
-    fecha_de_nacimiento = models.DateField(null=True, blank=True)
+    fecha_de_nacimiento = models.DateTimeField(null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
     rfc = models.CharField(max_length=255, null=True, blank=True)
     cubiculo = models.IntegerField(null=True, blank=True) #Los cubiulos solo son enteros
