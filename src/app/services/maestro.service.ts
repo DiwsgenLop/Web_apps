@@ -25,7 +25,7 @@ export class MaestroService {
   public esquemaMaestro() {
     return {
       'rol': '',
-      'id_trabajador': '',
+      'clave_maestro': '',
       'first_name': '',
       'last_name': '',
       'email': '',
@@ -33,7 +33,7 @@ export class MaestroService {
       'confirmar_password': '',
       'telefono': '',
       'rfc': '',
-      'birthday': '',
+      'fecha_de_nacimiento': '',
       'cubiculo': '',
       'area_investigacion': '',
       'materias_json': [],
@@ -45,9 +45,9 @@ export class MaestroService {
     console.log("Validando maestro... ", data);
     let error: any = [];
     //Validar campos
-    // id_trabajador
-    if(!this.validatorService.required(data["id_trabajador"])){
-      error["id_trabajador"] = this.errorService.required;
+    // clave_maestro
+    if(!this.validatorService.required(data["clave_maestro"])){
+      error["clave_maestro"] = this.errorService.required;
     }
     //Nombre
     if(!this.validatorService.required(data["first_name"])){
@@ -75,8 +75,8 @@ export class MaestroService {
       }
     }
     //Fecha de nacimiento
-    if(!this.validatorService.required(data["birthday"])){
-      error["birthday"] = this.errorService.required;
+    if(!this.validatorService.required(data["fecha_de_nacimiento"])){
+      error["fecha_de_nacimiento"] = this.errorService.required;
     }
     //Teléfono
     if(!this.validatorService.required(data["telefono"])){

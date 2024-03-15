@@ -25,13 +25,13 @@ export class AlumnoService {
   public esquemaAlumno() {
     return {
       'rol': '',
-      'id_alumno': '',
+      'clave_alumno': '',
       'first_name': '',
       'last_name': '',
       'email': '',
       'password': '',
       'confirmar_password': '',
-      'birthday': '',
+      'fecha_de_nacimiento': '',
       'curp': '',
       'rfc':'',
       'edad':'',
@@ -45,9 +45,9 @@ export class AlumnoService {
     console.log("Validando alumno... ", data);
     let error: any = [];
     //Validar campos
-    // id_alumno
-    if(!this.validatorService.required(data["id_alumno"])){
-      error["id_alumno"] = this.errorService.required;
+    // clave_alumno
+    if(!this.validatorService.required(data["clave_alumno"])){
+      error["clave_alumno"] = this.errorService.required;
     }
     //Nombre
     if(!this.validatorService.required(data["first_name"])){
@@ -75,8 +75,8 @@ export class AlumnoService {
       }
     }
     //Fecha de nacimiento
-    if(!this.validatorService.required(data["birthday"])){
-      error["birthday"] = this.errorService.required;
+    if(!this.validatorService.required(data["fecha_de_nacimiento"])){
+      error["fecha_de_nacimiento"] = this.errorService.required;
     }
 
     //CURP con validacion para minimo y maximo de caracteres

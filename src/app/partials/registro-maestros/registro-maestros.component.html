@@ -11,9 +11,9 @@
             <!--Id-->
             <mat-form-field class="mat-input" appearance="outline">
                 <mat-label>ID de trabajador</mat-label>
-                <input matInput [(ngModel)]="maestro.id_trabajador" name="id" placeholder="Escribe ID de Maestro">
+                <input matInput [(ngModel)]="maestro.clave_maestro" name="id" placeholder="Escribe ID de Maestro">
             </mat-form-field>
-            <div *ngIf="errors.id_trabajador" class="invalid-feedback">{{ errors.id_trabajador }}</div>
+            <div *ngIf="errors.clave_maestro" class="invalid-feedback">{{ errors.clave_maestro }}</div>
 
             <!--Nombre-->
             <mat-form-field class="mat-input" appearance="outline">
@@ -50,15 +50,15 @@
                     'visibility'}}</mat-icon>
             </mat-form-field>
             <div *ngIf="errors.confirmar_password" class="invalid-feedback">{{ errors.confirmar_password }}</div>
-            <!--Birthday-->
+            <!--fecha_de_nacimiento-->
             <mat-form-field class="mat-input" appearance="outline">
                 <mat-label>Fecha de nacimiento</mat-label>
-                <input matInput [(ngModel)]="maestro.birthday" [matDatepicker]="picker"
+                <input matInput [(ngModel)]="maestro.fecha_de_nacimiento" [matDatepicker]="picker"
                     placeholder="Escribe fecha de nacimiento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <div *ngIf="errors.birthday" class="invalid-feedback">{{ errors.birthday }}</div>
+            <div *ngIf="errors.fecha_de_nacimiento" class="invalid-feedback">{{ errors.fecha_de_nacimiento }}</div>
             <!--Teléfono-->
             <mat-form-field class="mat-input" appearance="outline">
                 <mat-label>Teléfono</mat-label>
