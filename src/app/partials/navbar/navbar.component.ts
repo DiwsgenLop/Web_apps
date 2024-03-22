@@ -7,20 +7,18 @@ declare var $:any;
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit{
-
-  @Input() tipo: string = "";
+  @Input() tipo:string = "";
   @Input() rol:string ="";
 
-  public token:string = "";
+  public token : string = "";
 
   constructor(
-    private router:Router
+    private router: Router
   ){}
 
   ngOnInit(): void {
 
   }
-
 
   public logout(){
 
@@ -56,4 +54,5 @@ export class NavbarComponent implements OnInit{
       $("#graficas").addClass("active");
     }
   }
+
 }

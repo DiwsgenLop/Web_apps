@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +31,6 @@ import { AdminScreenComponent } from './screens/admin-screen/admin-screen.compon
 import { AlumnosScreenComponent } from './screens/alumnos-screen/alumnos-screen.component';
 import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-screen.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,7 @@ import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-scre
     HomeScreenComponent,
     AdminScreenComponent,
     AlumnosScreenComponent,
-    MaestrosScreenComponent,
+    MaestrosScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +58,11 @@ import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-scre
     MatNativeDateModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule,
-    MatSelectModule,
+    HttpClientModule,
     MatCheckboxModule,
-    HttpClientModule
+    MatDialogModule,
+    MatSelectModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

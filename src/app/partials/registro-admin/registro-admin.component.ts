@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AdministradorService } from 'src/app/services/administrador.service';
+import { AdministradorService } from '../../services/administrador.service';
 import { Router } from '@angular/router';
+//Para poder usar jquery definir esto
 declare var $:any;
 
 @Component({
@@ -9,10 +10,10 @@ declare var $:any;
   styleUrls: ['./registro-admin.component.scss']
 })
 export class RegistroAdminComponent implements OnInit{
-  @Input() rol:string = ""; //Allows data to be passed from the parent component to the child component
+  @Input() rol: string = "";
 
-  public admin:any = {};
-  public editar:boolean = false;
+  public admin:any ={};
+  public editar:boolean =false;
   public errors:any = {};
   //Para contraseñas
   public hide_1: boolean = false;
@@ -20,13 +21,13 @@ export class RegistroAdminComponent implements OnInit{
   public inputType_1: string = 'password';
   public inputType_2: string = 'password';
 
-
   constructor(
     private administradoresService: AdministradorService,
     private router: Router
   ){}
 
   ngOnInit(): void {
+    //Definir el esquema a mi JSON
     this.admin = this.administradoresService.esquemaAdmin();
     this.admin.rol = this.rol;
     console.log("Admin: ", this.admin);
@@ -41,7 +42,7 @@ export class RegistroAdminComponent implements OnInit{
     //Validar
     this.errors = [];
 
-    this.errors = this.administradoresService.validarAdmin(this.admin, this.editar);
+    this.errors = this.administradoresService.validarAdmin(this.admin, this.editar)
     if(!$.isEmptyObject(this.errors)){
       return false;
     }

@@ -7,7 +7,6 @@ import { AdminScreenComponent } from './screens/admin-screen/admin-screen.compon
 import { AlumnosScreenComponent } from './screens/alumnos-screen/alumnos-screen.component';
 import { MaestrosScreenComponent } from './screens/maestros-screen/maestros-screen.component';
 
-
 const routes: Routes = [
   {path: '', component: LoginScreenComponent, pathMatch: 'full'}, //Raiz de la pagina principal
   {path: 'registro-usuarios', component: RegistroScreenComponent,pathMatch: 'full'}, //Ruta para el login

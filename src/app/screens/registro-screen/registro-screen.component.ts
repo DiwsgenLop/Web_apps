@@ -10,11 +10,11 @@ export class RegistroScreenComponent implements OnInit{
 
   public tipo:string = "registro-usuarios";
   public user:any = {};
-  public tipo_user:string = "";
-
+  //Banderas para tipos de usuarios
   public isAdmin:boolean = false;
   public isAlumno:boolean = false;
   public isMaestro:boolean = false;
+  public tipo_user:string ="";
 
   constructor(){}
 
@@ -22,8 +22,8 @@ export class RegistroScreenComponent implements OnInit{
 
   }
 
-
   public radioChange(event: MatRadioChange) {
+
     if(event.value == "administrador"){
       this.isAdmin = true;
       this.tipo_user = "administrador"
@@ -40,6 +40,6 @@ export class RegistroScreenComponent implements OnInit{
       this.isMaestro = true;
       this.tipo_user = "maestro"
     }
-
   }
+
 }
