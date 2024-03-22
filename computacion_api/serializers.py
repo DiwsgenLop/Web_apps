@@ -12,14 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id','first_name','last_name', 'email')
 
-
 class AdminSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
     class Meta:
         model = Administradores
-        fields = "__all__"
-        
-#Ahora creamos los serializadores para los modelos de Alumnos y Maestros
+        fields = '__all__'
 
 class AlumnoSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
@@ -31,13 +28,4 @@ class MaestroSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
     class Meta:
         model = Maestros
-        fields = "__all__"
-'''        
-#Extra para alumnos
-class ProfilesAllSerializerAlumnos(serializers.ModelSerializer):
-    class Meta:
-        model = Alumnos
-        fields = "__all__"
-        depth = 1
-
-'''
+        fields = '__all__'
