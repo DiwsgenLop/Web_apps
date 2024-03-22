@@ -18,7 +18,7 @@ export class AlumnosScreenComponent implements OnInit{
   public lista_alumnos: any[] = [];
 
   //Para la tabla
-  displayedColumns: string[] = ['matricula', 'nombre', 'email', 'fecha_nacimiento', 'edad', 'curp', 'rfc', 'telefono', 'ocupacion', 'editar', 'eliminar'];
+  displayedColumns: string[] = ['clave_alumno', 'nombre', 'email', 'fecha_de_nacimiento', 'edad', 'curp', 'rfc', 'telefono', 'ocupacion', 'editar', 'eliminar'];
   dataSource = new MatTableDataSource<DatosUsuario>(this.lista_alumnos as DatosUsuario[]);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

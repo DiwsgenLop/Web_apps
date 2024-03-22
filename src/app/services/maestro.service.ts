@@ -5,6 +5,7 @@ import { ValidatorService } from './tools/validator.service';
 //Librerias necesarias para la conexion con la API
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { FacadeService } from './facade.service';
 
 //Configuracion para la api
 const httpOptions ={
@@ -19,6 +20,7 @@ export class MaestroService {
     private http: HttpClient,
     private validatorService: ValidatorService,
     private errorService: ErrorsService,
+    private facadeService: FacadeService
   ) { }
 
   //Esquema para maestro
@@ -114,4 +116,12 @@ export class MaestroService {
     public registrarMaestro(data: any): Observable<any> {
     return this.http.post<any>(`${environment.url_api}/maestros/`, data, httpOptions);
     }
+    
+    //Obtener la lista de maestros
+    public obtenerListaAlumnos (): Observable <any>{
+      var token = this.facadeService.getSessionToken();
+      var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+      return this.http.get<any>(`${environment.url_api}/lista-maestro/`, {headers:headers});
+    } 
+
 }
